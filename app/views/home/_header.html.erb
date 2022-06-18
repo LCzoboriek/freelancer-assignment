@@ -6,12 +6,24 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <%if not user_signed_in?%>
+      <li class="nav-item">
+          <%= link_to "Sign Up", new_user_registration_path, class:"nav-link active"%>
+        </li>
+      <%end%>
+        <%if not user_signed_in?%>
+        <li class="nav-item">
+          <%= link_to "Sign In", new_user_session_path, class:"nav-link active"%>
+        </li>
+        <%end%>
         <li class="nav-item">
           <%= link_to "Register as Freelancer", new_freelancer_path, class:"nav-link active"%>
         </li>
+        <%if user_signed_in?%>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Logout</a>
+        <%= button_to "Logout", destroy_user_session_path, method: :delete, class:"btn btn-dark"%>
         </li>
+        <%end%>
     </div>
   </div>
 </nav>
