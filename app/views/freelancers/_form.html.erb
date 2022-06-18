@@ -28,7 +28,12 @@
 
   <div>
     <%= form.label :cost, style: "display: block" %>
-    <%= form.number_field :cost %>
+    <%= form.text_field :cost %>
+  </div>
+
+  <div>
+    <%= form.label :featured, style: "display: block" %>
+    <%= form.check_box :featured %>
   </div>
 
   <div>

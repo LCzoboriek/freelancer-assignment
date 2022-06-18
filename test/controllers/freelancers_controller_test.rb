@@ -17,7 +17,7 @@ class FreelancersControllerTest < ActionDispatch::IntegrationTest
 
   test "should create freelancer" do
     assert_difference("Freelancer.count") do
-      post freelancers_url, params: { freelancer: { bio: @freelancer.bio, cost: @freelancer.cost, first_name: @freelancer.first_name, last_name: @freelancer.last_name } }
+      post freelancers_url, params: { freelancer: { bio: @freelancer.bio, cost: @freelancer.cost, featured: @freelancer.featured, first_name: @freelancer.first_name, last_name: @freelancer.last_name } }
     end
 
     assert_redirected_to freelancer_url(Freelancer.last)
@@ -34,7 +34,7 @@ class FreelancersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update freelancer" do
-    patch freelancer_url(@freelancer), params: { freelancer: { bio: @freelancer.bio, cost: @freelancer.cost, first_name: @freelancer.first_name, last_name: @freelancer.last_name } }
+    patch freelancer_url(@freelancer), params: { freelancer: { bio: @freelancer.bio, cost: @freelancer.cost, featured: @freelancer.featured, first_name: @freelancer.first_name, last_name: @freelancer.last_name } }
     assert_redirected_to freelancer_url(@freelancer)
   end
 

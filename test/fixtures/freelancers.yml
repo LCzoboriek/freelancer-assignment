@@ -4,10 +4,12 @@ one:
   first_name: MyString
   last_name: MyString
   bio: MyString
-  cost: 1
+  cost: MyString
+  featured: false
 
 two:
   first_name: MyString
   last_name: MyString
   bio: MyString
-  cost: 1
+  cost: MyString
+  featured: false

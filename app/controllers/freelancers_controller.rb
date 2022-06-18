@@ -53,6 +53,6 @@ class FreelancersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def freelancer_params
-      params.require(:freelancer).permit(:first_name, :last_name, :bio, :cost)
+      params.require(:freelancer).permit(:first_name, :last_name, :bio, :cost, :featured)
     end
 end

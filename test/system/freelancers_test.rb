@@ -16,6 +16,7 @@ class FreelancersTest < ApplicationSystemTestCase
 
     fill_in "Bio", with: @freelancer.bio
     fill_in "Cost", with: @freelancer.cost
+    check "Featured" if @freelancer.featured
     fill_in "First name", with: @freelancer.first_name
     fill_in "Last name", with: @freelancer.last_name
     click_on "Create Freelancer"
@@ -30,6 +31,7 @@ class FreelancersTest < ApplicationSystemTestCase
 
     fill_in "Bio", with: @freelancer.bio
     fill_in "Cost", with: @freelancer.cost
+    check "Featured" if @freelancer.featured
     fill_in "First name", with: @freelancer.first_name
     fill_in "Last name", with: @freelancer.last_name
     click_on "Update Freelancer"
