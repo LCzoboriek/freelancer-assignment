@@ -1,10 +1,13 @@
-
-
+<div class="row g-0 bg-dark position-relative text-light">
+  <div class="col-md-6 mb-md-0 p-md-4">
+<img src="https://i.pinimg.com/originals/88/e5/81/88e581aa6b4459a14ae70d66ba95a083.jpg" class="w-100">
+</div>
+<div class="col-md-6 p-4 ps-md-0">
 <%= render @freelancer %>
-
-<div>
-  <%= link_to "Edit this freelancer", edit_freelancer_path(@freelancer) %> |
-  <%= link_to "Back to freelancers", freelancers_path %>
-
-  <%= button_to "Destroy this freelancer", @freelancer, method: :delete %>
+  <%= link_to "Edit this freelancer", edit_freelancer_path(@freelancer), class: "btn btn-info" %> |
+  <%= link_to "Back to marketboard", root_path, class: "btn btn-info" %>
+  <br/>
+  <br/>
+  <%= button_to "Unregister", @freelancer, method: :delete, class: "btn btn-dark" %>
+</div>
 </div>

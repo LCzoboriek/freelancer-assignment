@@ -16,9 +16,11 @@
           <%= link_to "Sign In", new_user_session_path, class:"nav-link active"%>
         </li>
         <%end%>
+        <%if user_signed_in?%>
         <li class="nav-item">
           <%= link_to "Register as Freelancer", new_freelancer_path, class:"nav-link active"%>
         </li>
+        <%end%>
         <%if user_signed_in?%>
         <li class="nav-item">
         <%= button_to "Logout", destroy_user_session_path, method: :delete, class:"btn btn-dark"%>

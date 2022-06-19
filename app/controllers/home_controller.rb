@@ -3,7 +3,7 @@ class HomeController < ApplicationController
 
 
   def index
-    @freelancers = Freelancer.all
+    @pagy, @freelancers = pagy(Freelancer.order(featured: :desc))
   end
 
   private

@@ -1,41 +1,22 @@
+<% if user_signed_in?%>
+<%== pagy_nav(@pagy)%>
 <div class="d-flex flex-wrap justify-content flex-shrink-1 gap-3">
-  <% @freelancers.each do |freelancer| %>
-    <%if(freelancer.featured)%>
+  <%@freelancers.each do |freelancer| %>
     <div class="card mb-3" style="max-width: 540px">
-    <div class="row g-0">
+      <div class="row g-0">
         <div class="col-md-4">
         <img src="https://i.pinimg.com/originals/57/f5/da/57f5da08bd8f52bc2d3e4ebadd67b642.jpg" class="img-fluid rounded-start" alt="6-logo">
         </div>
-        <div class="col-md-8">
-        <div class="card-body">
-        <%= render freelancer %>
-        <%= link_to "Show this freelancer", freelancer, class: "btn btn-info" %>
-        </div>
-        </div>
-        </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <%= render freelancer %>
+              <%= link_to "Show this freelancer", freelancer, class: "btn btn-info" %>
+            </div>
+          </div>
     </div>
-    <br/>
-    <%end%>
-  <% end %>
-    <% @freelancers.each do |freelancer| %>
-    <%if not(freelancer.featured)%>
-    <div class="card mb-3" style="max-width: 540px">
-        <div class="row g-0">
-        <div class="col-md-4">
-        <img src="https://i.pinimg.com/originals/57/f5/da/57f5da08bd8f52bc2d3e4ebadd67b642.jpg" class="img-fluid rounded-start" alt="6-logo">
-        </div>
-        <div class="col-md-8">
-        <div class="card-body">
-        <%= render freelancer %>
-        <%= link_to "Show this freelancer", freelancer, class: "btn btn-info" %>
-        </div>
-        </div>
-       </div>
-       
-       
-    </div>
-    <%end%>        
-    <br/>
-    <%end%>
+  <br/>
 </div>
-</div>
+<%end%>
+<% else %>
+<h1>Please sign up, or sign in!</h1>
+<%end%>
