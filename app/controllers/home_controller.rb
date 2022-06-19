@@ -8,12 +8,17 @@ class HomeController < ApplicationController
       Freelancer.order(featured: :desc).map(&:attributes)
     end
   
-    freelancers = freelancers.select do |freelancer|
-      freelancer['cost'].in?((params[:cost_lower_than].to_i || 0)..params[:cost_greater_than].presence)
+    if params[:cost_lower_than].present? || params[:cost_greater_than].present?
+      from = params[:cost_lower_than].to_i || 0
+      to = params[:cost_greater_than].to_i.zero? ? nil : params[:cost_greater_than].to_i
+      freelancers = freelancers.select do |freelancer|
+        freelancer['cost'].in?(from..to) 
+      end
     end
   
     @pagy, @freelancers = pagy_array(freelancers)
   end
+  
   
 
   private
