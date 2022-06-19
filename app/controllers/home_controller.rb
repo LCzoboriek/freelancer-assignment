@@ -4,7 +4,11 @@ class HomeController < ApplicationController
 
 
   def index
-    @pagy, @freelancers = pagy(Freelancer.order(featured: :desc))
+    freelancers_scope = Freelancer.order(featured: :desc)
+    freelancers_scope = freelancers_scope.where("cost >= ?", params[:cost_lower_than]) if params[:cost_greater_than].present?
+    freelancers_scope = freelancers_scope.where("cost <= ?", params[:cost_greater_than]) if params[:cost_lower_than].present?
+
+    @pagy, @freelancers = pagy(freelancers_scope)
   end
 
   private
