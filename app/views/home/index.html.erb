@@ -1,7 +1,10 @@
+<h1>Welcome to sixerr</h1>
+<h3>Please choose from the freelancers below or filter by cost choice</h3>
+<h3>You can also register as a freelancer on the nav bar in the top left of the screen</h3>
 <% if user_signed_in?%>
 <%= form_with method: :get, url: url_for do |f| %>
-  <%= f.number_field :cost_lower_than, value: params[:cost_lower_than] %>
-  <%= f.number_field :cost_greater_than, value: params[:cost_greater_than] %>
+  <%= f.number_field :cost_lower_than, value: params[:cost_lower_than], placeholder: "From" %>
+  <%= f.number_field :cost_greater_than, value: params[:cost_greater_than], placeholder: "To" %>
   <%= submit_tag("Submit") %>
 <% end %>
 
