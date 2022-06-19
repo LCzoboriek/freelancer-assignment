@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require 'pagy/extras/array'
 
 # Pagy initializer file (5.10.1)
 # Customize only what you really need and notice that the core Pagy works also without any of the following lines.

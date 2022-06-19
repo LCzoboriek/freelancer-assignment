@@ -4,12 +4,17 @@ class HomeController < ApplicationController
 
 
   def index
-    freelancers_scope = Freelancer.order(featured: :desc)
-    freelancers_scope = freelancers_scope.where("cost >= ?", params[:cost_lower_than]) if params[:cost_greater_than].present?
-    freelancers_scope = freelancers_scope.where("cost <= ?", params[:cost_greater_than]) if params[:cost_lower_than].present?
-
-    @pagy, @freelancers = pagy(freelancers_scope)
+    freelancers = Rails.cache.fetch('freelancers', expires_in: 24.hours) do
+      Freelancer.order(featured: :desc).map(&:attributes)
+    end
+  
+    freelancers = freelancers.select do |freelancer|
+      freelancer['cost'].in?((params[:cost_lower_than].to_i || 0)..params[:cost_greater_than].presence)
+    end
+  
+    @pagy, @freelancers = pagy_array(freelancers)
   end
+  
 
   private
 

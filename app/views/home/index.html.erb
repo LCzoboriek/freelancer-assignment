@@ -10,7 +10,7 @@
 
 <%== pagy_nav(@pagy)%>
 <div class="d-flex flex-wrap justify-content flex-shrink-1 gap-3">
-  <%@freelancers.each do |freelancer| %>
+  <% @freelancers.each do |freelancer| %>
     <div class="card mb-3" style="max-width: 540px">
       <div class="row g-0">
         <div class="col-md-4">
@@ -18,7 +18,16 @@
         </div>
           <div class="col-md-8">
             <div class="card-body">
-              <%= render freelancer %>
+              <p>First Name: <%= freelancer['first_name'] %></p>
+              
+              <p>Last Name: <%= freelancer['last_name'] %></p>
+              
+              <p>Bio: <%= freelancer['bio'] %></p>
+
+              <p>Cost: <%= freelancer['cost'] %> Per Hour ($)</p>
+
+              <p>Featured: <%= freelancer['featured'] %></p>
+              <br/>
               <%= link_to "Show this freelancer", freelancer, class: "btn btn-info" %>
             </div>
           </div>
