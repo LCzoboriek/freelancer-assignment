@@ -4,7 +4,7 @@ class CreateFreelancers < ActiveRecord::Migration[7.0]
       t.string :first_name
       t.string :last_name
       t.string :bio
-      t.string :cost
+      t.integer :cost
       t.boolean :featured
 
       t.timestamps
